@@ -1,0 +1,13 @@
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
+
+const app = require('./app');
+const connectDB = require('./db/db');
+
+const PORT = process.env.PORT || 3000;
+
+connectDB();
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
