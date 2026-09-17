@@ -1,0 +1,3 @@
+export function PlansModal({ plans, onClose, onPremium }) {
+  return <div className="modal plans"><div><button className="close" onClick={onClose}>×</button><h2>Pick the sound that fits you</h2><div className="plan-grid">{plans.map(plan => <article key={plan.id} className={plan.id === "premium" ? "featured" : ""}><h3>{plan.name}</h3><strong>{plan.price ? `$${plan.price}` : "$0"}<small>/ month</small></strong>{plan.features.map(feature => <p key={feature}>✓ {feature}</p>)}<button onClick={() => plan.id === "premium" ? onPremium() : onClose()}>{plan.id === "premium" ? "Try Premium" : "Current free option"}</button></article>)}</div></div></div>;
+}

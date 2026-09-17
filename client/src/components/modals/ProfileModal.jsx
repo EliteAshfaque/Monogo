@@ -1,0 +1,6 @@
+import { useState } from "react";
+
+export function ProfileModal({ user, onClose, onSave, onLogout }) {
+  const [form, setForm] = useState({ username: user.username, email: user.email, currentPassword: "", newPassword: "" });
+  return <div className="modal"><form onSubmit={event => { event.preventDefault(); onSave(form); }}><button type="button" className="close" onClick={onClose}>×</button><h2>Your profile</h2><p>Update your account details or password.</p><label>Username<input required value={form.username} onChange={event => setForm({ ...form, username: event.target.value })} /></label><label>Email<input required type="email" value={form.email} onChange={event => setForm({ ...form, email: event.target.value })} /></label><label>Current password <small>Only required to change password</small><input type="password" value={form.currentPassword} onChange={event => setForm({ ...form, currentPassword: event.target.value })} /></label><label>New password <small>At least 8 characters</small><input minLength="8" type="password" value={form.newPassword} onChange={event => setForm({ ...form, newPassword: event.target.value })} /></label><button>Save changes</button><button type="button" className="logout" onClick={onLogout}>Log out</button></form></div>;
+}
