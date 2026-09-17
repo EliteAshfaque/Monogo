@@ -3,4 +3,6 @@ client/node_modules/
 client/dist/
 server/src/.env
 client/.env
+# Never commit local environment files or credentials.
 .env
+**/.env
