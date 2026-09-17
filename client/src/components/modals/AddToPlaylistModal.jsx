@@ -1,0 +1,3 @@
+export function AddToPlaylistModal({ track, playlists, onClose, onAdd, onCreatePlaylist }) {
+  return <div className="modal playlist-picker"><div><button className="close" onClick={onClose}>×</button><h2>Add to playlist</h2><p><b>{track.title}</b> · {track.artist?.name}</p>{playlists.length ? <div className="playlist-options">{playlists.map(playlist => <button key={playlist._id} onClick={() => onAdd(playlist._id)}><span>♫</span><div><b>{playlist.name}</b><small>{playlist.tracks?.length || 0} tracks</small></div><i>＋</i></button>)}</div> : <p>You do not have a playlist yet.</p>}<button className="create-playlist-link" onClick={onCreatePlaylist}>＋ Create a new playlist</button></div></div>;
+}

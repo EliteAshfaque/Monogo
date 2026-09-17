@@ -1,0 +1,3 @@
+export function PaymentModal({ price, onClose, onSubmit }) {
+  return <div className="modal"><form onSubmit={event => { event.preventDefault(); onSubmit(); }}><button type="button" className="close" onClick={onClose}>×</button><h2>Start Premium</h2><p>{price ? `$${price}/month · cancel anytime` : "Premium"}</p><label>Cardholder name<input required placeholder="Your name" /></label><label>Card number<input required inputMode="numeric" placeholder="4242 4242 4242 4242" /></label><div className="two"><input required placeholder="MM / YY" /><input required placeholder="CVC" /></div><button>Pay & activate Premium</button><small className="secure">🔒 Demo checkout — no real payment is processed.</small></form></div>;
+}
